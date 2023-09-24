@@ -14,5 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Wallcater_App"
 include ':app'
-include ':features:image_category'
+include ':features:search_image'
 include ':data'

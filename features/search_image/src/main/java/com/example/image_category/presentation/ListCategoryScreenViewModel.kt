@@ -8,31 +8,31 @@ import com.example.image_category.domain.usecase.GetListCategoriesUseCase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
-class ScreenCategoryViewModel(
+class ListCategoryScreenViewModel(
     private val getListCategoriesUseCase: GetListCategoriesUseCase
 ) : ViewModel() {
 
-    private val _state: MutableLiveData<ScreenCategoryUiState> =
-        MutableLiveData(ScreenCategoryUiState.Initial)
-    val state: LiveData<ScreenCategoryUiState> = _state
+    private val _state: MutableLiveData<ListCategoryScreenUiState> =
+        MutableLiveData(ListCategoryScreenUiState.Initial)
+    val state: LiveData<ListCategoryScreenUiState> = _state
 
     fun initial() {
         viewModelScope.launch {
-            _state.value = ScreenCategoryUiState.Initial
+            _state.value = ListCategoryScreenUiState.Initial
         }
     }
 
     fun getListCategories() {
         viewModelScope.launch {
-            _state.value = ScreenCategoryUiState.Loading
+            _state.value = ListCategoryScreenUiState.Loading
 
             try {
                 val listCategories = getListCategoriesUseCase()
-                _state.value = ScreenCategoryUiState.Content(listCategories)
+                _state.value = ListCategoryScreenUiState.Content(listCategories)
             } catch (rethrow: CancellationException) {
                 throw rethrow
             } catch (ex: Exception) {
-                _state.value = ScreenCategoryUiState.Error(ex.message)
+                _state.value = ListCategoryScreenUiState.Error(ex.message)
             }
 
         }

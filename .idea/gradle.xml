@@ -13,7 +13,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/features" />
-            <option value="$PROJECT_DIR$/features/image_category" />
+            <option value="$PROJECT_DIR$/features/search_image" />
           </set>
         </option>
       </GradleProjectSettings>

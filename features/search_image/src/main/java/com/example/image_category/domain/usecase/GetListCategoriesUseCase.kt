@@ -1,10 +1,10 @@
 package com.example.image_category.domain.usecase
 
 import com.example.image_category.domain.entities.CategoryEntity
-import com.example.image_category.domain.repositories.ImageCategoryScreenRepository
+import com.example.image_category.domain.repositories.CategoryRepository
 
 class GetListCategoriesUseCase(
-    private val repository: ImageCategoryScreenRepository
+    private val repository: CategoryRepository
 ) {
     suspend operator fun invoke(): List<CategoryEntity> = repository.getListCategories()
 }

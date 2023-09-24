@@ -63,7 +63,7 @@ buildscript {
 
         Modules = [
                 Features: [
-                        ImageCategory: ':features:image_category'
+                        ImageCategory: ':features:search_image'
                 ],
                 Data: ':data'
         ]

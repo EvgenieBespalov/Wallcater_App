@@ -10,23 +10,23 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.image_category.domain.entities.CategoryEntity
-import com.example.image_category.presentation.ScreenCategoryUiState
-import com.example.image_category.presentation.ScreenCategoryViewModel
+import com.example.image_category.presentation.ListCategoryScreenUiState
+import com.example.image_category.presentation.ListCategoryScreenViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun ScreenCategory(
-    viewModel: ScreenCategoryViewModel = koinViewModel(),
+fun ListCategoryScreen(
+    viewModel: ListCategoryScreenViewModel = koinViewModel(),
 ){
-    val state by viewModel.state.observeAsState(ScreenCategoryUiState.Initial)
+    val state by viewModel.state.observeAsState(ListCategoryScreenUiState.Initial)
 
     when(state){
-        ScreenCategoryUiState.Initial    -> viewModel.getListCategories()
-        ScreenCategoryUiState.Loading    -> LoadScreen()
-        is ScreenCategoryUiState.Content -> {
-            CategoryList(listCategory = (state as ScreenCategoryUiState.Content).listCategory)
+        ListCategoryScreenUiState.Initial    -> viewModel.getListCategories()
+        ListCategoryScreenUiState.Loading    -> LoadScreen()
+        is ListCategoryScreenUiState.Content -> {
+            CategoryList(listCategory = (state as ListCategoryScreenUiState.Content).listCategory)
         }
-        is ScreenCategoryUiState.Error   -> ErrorScreen(errorText = (state as ScreenCategoryUiState.Error).message.orEmpty())
+        is ListCategoryScreenUiState.Error   -> ErrorScreen(errorText = (state as ListCategoryScreenUiState.Error).message.orEmpty())
     }
 }
 
