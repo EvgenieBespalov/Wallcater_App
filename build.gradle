@@ -4,17 +4,38 @@ buildscript {
         minAndroidSdk = 24
 
         compose_version = '1.4.3'
+        room_version = '2.5.1'
+        retrofit_version = '2.9.0'
+        pager_version = '3.2.0'
+        koin_version = '3.4.1'
 
         Implementations = [
                 Compose: [
                         Ui: "androidx.compose.ui:ui:$compose_version",
                         UiToolingPreview: "androidx.compose.ui:ui-tooling-preview:$compose_version",
-                        Material3: 'androidx.compose.material3:material3:1.0.0-alpha11'
+                        Material3: 'androidx.compose.material3:material3:1.0.0-alpha11',
+                        RuntimeLivedata: "androidx.compose.runtime:runtime-livedata:$compose_version"
                 ],
                 Android: [
                         CoreKtx: 'androidx.core:core-ktx:1.7.0',
                         LifecycleRuntimeKtx: 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1',
                         ActivityCompose: 'androidx.activity:activity-compose:1.3.1'
+                ],
+                Coroutines: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4',
+                Retrofit: [
+                        Retrofit: "com.squareup.retrofit2:retrofit:$retrofit_version",
+                        RetrofitMock: "com.squareup.retrofit2:retrofit-mock:$retrofit_version",
+                        ConverterGson: "com.squareup.retrofit2:converter-gson:$retrofit_version"
+                ],
+                Room: "androidx.room:room-runtime:$room_version",
+                Pager: [
+                        PagingRuntime: "androidx.paging:paging-runtime:$pager_version",
+                        PagingCompose: "androidx.paging:paging-compose:$pager_version"
+                ],
+                Koin: [
+                        KoinCore: "io.insert-koin:koin-core:$koin_version",
+                        KoinAndroid: "io.insert-koin:koin-android:$koin_version",
+                        KoinAndroidxCompose: "io.insert-koin:koin-androidx-compose:$koin_version"
                 ]
         ]
         AndroidTestImplementations = [
@@ -33,12 +54,18 @@ buildscript {
                 ]
         ]
         TestImplementation = [
-                Junit: 'junit:junit:4.13.2'
+                Junit: 'junit:junit:4.13.2',
+                CoroutinesTest: "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4"
         ]
+        Kapt = [
+                Room: "androidx.room:room-compiler:$room_version"
+        ]
+
         Modules = [
                 Features: [
                         ImageCategory: ':features:image_category'
-                ]
+                ],
+                Data: ':data'
         ]
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.

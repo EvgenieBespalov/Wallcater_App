@@ -47,7 +47,8 @@ android {
 }
 
 dependencies {
-    implementation project(Modules.Features.ImageCategory)
+    implementation project(path: Modules.Features.ImageCategory)
+    implementation project(path: Modules.Data)
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
@@ -69,5 +70,11 @@ dependencies {
 
     testImplementation TestImplementation.Junit
 
-
+    //Koin
+    implementation Implementations.Koin.KoinCore
+    implementation Implementations.Koin.KoinAndroid
+    implementation Implementations.Koin.KoinAndroidxCompose
+    //Pager3
+    implementation Implementations.Pager.PagingRuntime
+    implementation Implementations.Pager.PagingCompose
 }

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.image_category'
+    namespace 'com.example.data'
     compileSdk 33
 
     defaultConfig {
@@ -28,34 +28,32 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0'
-    }
-
 }
 
-dependencies {
-    implementation Implementations.Android.CoreKtx
-    implementation Implementations.Android.LifecycleRuntimeKtx
-    implementation Implementations.Android.ActivityCompose
-    implementation Implementations.Compose.Ui
-    implementation Implementations.Compose.UiToolingPreview
-    implementation Implementations.Compose.Material3
-    implementation Implementations.Compose.RuntimeLivedata
+apply plugin: 'kotlin-kapt'
 
-    androidTestImplementation AndroidTestImplementations.Compose.UiTestJunit4
+dependencies {
     androidTestImplementation AndroidTestImplementations.Test.Junit
+
+    //Coroutines
+    implementation Implementations.Coroutines
+    testImplementation TestImplementation.CoroutinesTest
+
+    //Retrofit
+    implementation Implementations.Retrofit.Retrofit
+    implementation Implementations.Retrofit.RetrofitMock
+    implementation Implementations.Retrofit.ConverterGson
+
+    // Architecture Component - Room
+    implementation Implementations.Room
+    kapt Kapt.Room
 
     //Pager3
     implementation Implementations.Pager.PagingRuntime
     implementation Implementations.Pager.PagingCompose
+
     //Koin
     implementation Implementations.Koin.KoinCore
     implementation Implementations.Koin.KoinAndroid
     implementation Implementations.Koin.KoinAndroidxCompose
-
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
