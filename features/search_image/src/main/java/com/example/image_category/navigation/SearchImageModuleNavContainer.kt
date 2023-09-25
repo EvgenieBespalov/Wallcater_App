@@ -19,8 +19,13 @@ fun SearchImageModuleNavContainer(){
                 ListCategoryScreen(navController = navController)
             }
 
-            composable(SearchImageModuleRoutes.ListImageScreenRoute.route) {
-                ListImageScreen()
+            composable(SearchImageModuleRoutes.ListImageScreenRoute.route + "/{categoryId}") {
+                it.arguments?.getString("categoryId")?.let { it1 ->
+                    ListImageScreen(
+                        navController = navController,
+                        categoryId = it1
+                    )
+                }
             }
         }
     )

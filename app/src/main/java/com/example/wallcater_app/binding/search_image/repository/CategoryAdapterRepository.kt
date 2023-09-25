@@ -9,5 +9,6 @@ class CategoryAdapterRepository(
     private val apiRepository: ApiRepository,
     private val categoryConverter: CategoryConverter
 ) : CategoryRepository {
-    override suspend fun getListCategories(): List<CategoryEntity> = apiRepository.getCategories().map { categoryConverter.convertApiModelToEntity(it) }
+    override suspend fun getListCategories(): List<CategoryEntity> =
+        apiRepository.getCategories().map { categoryConverter.convertApiModelToEntity(it) }
 }

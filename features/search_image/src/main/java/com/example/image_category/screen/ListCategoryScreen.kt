@@ -17,7 +17,7 @@ import com.example.image_category.presentation.ListCategoryScreenViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun ListCategoryScreen(
+internal fun ListCategoryScreen(
     viewModel: ListCategoryScreenViewModel = koinViewModel(),
     navController: NavHostController
 ){
@@ -65,7 +65,7 @@ fun CategoryItem(
 ){
     Button(
         onClick = {
-            navController.navigate(SearchImageModuleRoutes.ListImageScreenRoute.route)
+            navController.navigate(SearchImageModuleRoutes.ListImageScreenRoute.route + "/${category.id}")
         },
         modifier = Modifier
             .padding(top = 20.dp, start = 20.dp, end = 20.dp)

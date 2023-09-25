@@ -37,6 +37,7 @@ android {
 
 }
 
+
 dependencies {
     implementation Implementations.Android.CoreKtx
     implementation Implementations.Android.LifecycleRuntimeKtx
@@ -45,6 +46,9 @@ dependencies {
     implementation Implementations.Compose.UiToolingPreview
     implementation Implementations.Compose.Material3
     implementation Implementations.Compose.RuntimeLivedata
+
+    implementation Implementations.Navigation.NavigationCompose
+    implementation Implementations.Navigation.NavigationRuntime
 
     androidTestImplementation AndroidTestImplementations.Compose.UiTestJunit4
     androidTestImplementation AndroidTestImplementations.Test.Junit

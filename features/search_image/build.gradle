@@ -45,6 +45,7 @@ dependencies {
     implementation Implementations.Compose.UiToolingPreview
     implementation Implementations.Compose.Material3
     implementation Implementations.Compose.RuntimeLivedata
+    implementation Implementations.Compose.CoilCompose
 
     androidTestImplementation AndroidTestImplementations.Compose.UiTestJunit4
     androidTestImplementation AndroidTestImplementations.Test.Junit

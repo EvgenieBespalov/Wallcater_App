@@ -14,7 +14,7 @@ class ApiRepositoryImpl(
     private val categoryApiDatasource: CategoryApiDatasource,
     private val imageApiDatasource: ImageApiDatasource
 ) : ApiRepository{
-    override suspend fun getListImages(page: String, categoryId: String): Flow<PagingData<ImageApiModel>> =
+    override suspend fun getListImages(categoryId: String): Flow<PagingData<ImageApiModel>> =
         Pager(PagingConfig(10)){
             ImagePagingSource(imageApiDatasource, categoryId)
         }.flow

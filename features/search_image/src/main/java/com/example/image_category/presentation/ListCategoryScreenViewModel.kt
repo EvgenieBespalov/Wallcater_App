@@ -8,7 +8,7 @@ import com.example.image_category.domain.usecase.GetListCategoriesUseCase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
-class ListCategoryScreenViewModel(
+internal class ListCategoryScreenViewModel(
     private val getListCategoriesUseCase: GetListCategoriesUseCase,
     //private val routes: ListCategoryScreenRoutes
 ) : ViewModel() {

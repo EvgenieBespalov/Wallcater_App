@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ImageApiModel(
     @SerializedName("id")
-    val id: Int,
+    val id: String,
     @SerializedName("url")
     val url: String,
     @SerializedName("width")
