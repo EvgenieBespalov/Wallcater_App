@@ -10,7 +10,8 @@ fun provideImageCategoryModule(): Module =
     module {
         viewModel {
             ListCategoryScreenViewModel(
-                getListCategoriesUseCase = get()
+                getListCategoriesUseCase = get(),
+                //routes = get()
             )
         }
         factory { GetListCategoriesUseCase(repository = get()) }

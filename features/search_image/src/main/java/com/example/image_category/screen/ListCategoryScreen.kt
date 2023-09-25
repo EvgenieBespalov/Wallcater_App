@@ -9,7 +9,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.image_category.domain.entities.CategoryEntity
+import com.example.image_category.navigation.SearchImageModuleRoutes
 import com.example.image_category.presentation.ListCategoryScreenUiState
 import com.example.image_category.presentation.ListCategoryScreenViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -17,6 +19,7 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun ListCategoryScreen(
     viewModel: ListCategoryScreenViewModel = koinViewModel(),
+    navController: NavHostController
 ){
     val state by viewModel.state.observeAsState(ListCategoryScreenUiState.Initial)
 
@@ -24,15 +27,21 @@ fun ListCategoryScreen(
         ListCategoryScreenUiState.Initial    -> viewModel.getListCategories()
         ListCategoryScreenUiState.Loading    -> LoadScreen()
         is ListCategoryScreenUiState.Content -> {
-            CategoryList(listCategory = (state as ListCategoryScreenUiState.Content).listCategory)
+            CategoryList(
+                listCategory = (state as ListCategoryScreenUiState.Content).listCategory,
+                navController = navController
+            )
         }
         is ListCategoryScreenUiState.Error   -> ErrorScreen(errorText = (state as ListCategoryScreenUiState.Error).message.orEmpty())
     }
 }
 
+
+
 @Composable
 fun CategoryList(
-    listCategory: List<CategoryEntity>
+    listCategory: List<CategoryEntity>,
+    navController: NavHostController
 ){
     LazyColumn(
         modifier = Modifier
@@ -41,17 +50,23 @@ fun CategoryList(
         items(
             count = listCategory.size
         ){
-            CategoryItem(listCategory[it])
+            CategoryItem(
+                category = listCategory[it],
+                navController = navController
+            )
         }
     }
 }
 
 @Composable
 fun CategoryItem(
-    category: CategoryEntity
+    category: CategoryEntity,
+    navController: NavHostController
 ){
     Button(
-        onClick = {},
+        onClick = {
+            navController.navigate(SearchImageModuleRoutes.ListImageScreenRoute.route)
+        },
         modifier = Modifier
             .padding(top = 20.dp, start = 20.dp, end = 20.dp)
             .fillMaxWidth()

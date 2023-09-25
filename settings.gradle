@@ -16,3 +16,5 @@ rootProject.name = "Wallcater_App"
 include ':app'
 include ':features:search_image'
 include ':data'
+include ':features:settings'
+include ':features:bottom_bar'

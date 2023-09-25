@@ -9,7 +9,8 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.launch
 
 class ListCategoryScreenViewModel(
-    private val getListCategoriesUseCase: GetListCategoriesUseCase
+    private val getListCategoriesUseCase: GetListCategoriesUseCase,
+    //private val routes: ListCategoryScreenRoutes
 ) : ViewModel() {
 
     private val _state: MutableLiveData<ListCategoryScreenUiState> =
@@ -21,6 +22,10 @@ class ListCategoryScreenViewModel(
             _state.value = ListCategoryScreenUiState.Initial
         }
     }
+
+  /*  fun launchListImageScreen(){
+        routes.launchListImageScreen()
+    }*/
 
     fun getListCategories() {
         viewModelScope.launch {

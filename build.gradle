@@ -63,9 +63,11 @@ buildscript {
 
         Modules = [
                 Features: [
-                        ImageCategory: ':features:search_image'
+                        ImageCategory: ':features:search_image',
+                        Settings: ':features:settings',
+                        BottomBar: ":features:bottom_bar"
                 ],
-                Data: ':data'
+                Data: ':data',
         ]
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.

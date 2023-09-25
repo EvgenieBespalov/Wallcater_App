@@ -1,23 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.example.wallcater_app'
+    namespace 'com.example.settings'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.wallcater_app"
         minSdk minAndroidSdk
         targetSdk targetAndroidSdk
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -39,44 +34,24 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion '1.2.0'
     }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
-    }
 }
 
 dependencies {
-    implementation project(path: Modules.Features.ImageCategory)
-    implementation project(path: Modules.Features.Settings)
-    implementation project(path: Modules.Features.BottomBar)
-    implementation project(path: Modules.Data)
-
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
-
     implementation Implementations.Android.CoreKtx
     implementation Implementations.Android.LifecycleRuntimeKtx
     implementation Implementations.Android.ActivityCompose
-
     implementation Implementations.Compose.Ui
     implementation Implementations.Compose.UiToolingPreview
     implementation Implementations.Compose.Material3
-
+    implementation Implementations.Compose.RuntimeLivedata
 
     androidTestImplementation AndroidTestImplementations.Compose.UiTestJunit4
     androidTestImplementation AndroidTestImplementations.Test.Junit
-    androidTestImplementation AndroidTestImplementations.Test.EspressoCore
-
-    debugImplementation DebugImplementation.Compose.UiTooling
-    debugImplementation DebugImplementation.Compose.UiTestManifest
-
-    testImplementation TestImplementation.Junit
 
     //Koin
     implementation Implementations.Koin.KoinCore
     implementation Implementations.Koin.KoinAndroid
     implementation Implementations.Koin.KoinAndroidxCompose
-    //Pager3
-    implementation Implementations.Pager.PagingRuntime
-    implementation Implementations.Pager.PagingCompose
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }
