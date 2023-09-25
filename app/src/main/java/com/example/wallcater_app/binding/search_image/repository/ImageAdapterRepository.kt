@@ -21,7 +21,5 @@ class ImageAdapterRepository(
             }
         }
 
-    override suspend fun getImage(id: String): ImageEntity {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getImage(id: String): ImageEntity = imageConverter.convertModelInEntity(apiRepository.getImage(id))
 }

@@ -27,6 +27,14 @@ fun SearchImageModuleNavContainer(){
                     )
                 }
             }
+
+            composable(SearchImageModuleRoutes.ImageScreenRoute.route + "/{imageId}") {
+                it.arguments?.getString("imageId")?.let { it1 ->
+                    ImageScreen(
+                        imageId = it1
+                    )
+                }
+            }
         }
     )
 }
