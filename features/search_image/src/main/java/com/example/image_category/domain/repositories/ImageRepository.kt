@@ -7,4 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface ImageRepository {
     suspend fun getListImages(categoryId: String): Flow<PagingData<ImageEntity>>
     suspend fun getImage(id: String): ImageEntity
+    suspend fun setWallpapperOnLockScreen(urlImage: String)
+    suspend fun setWallpapperOnSystemScreen(urlImage: String)
 }

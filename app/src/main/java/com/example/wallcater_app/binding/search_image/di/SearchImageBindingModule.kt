@@ -1,6 +1,7 @@
 package com.example.wallcater_app.binding.search_image.di
 
 import com.example.data.api.repository.ApiRepository
+import com.example.data.wallpaper_manager.repository.WallpaperRepository
 import com.example.image_category.domain.repositories.CategoryRepository
 import com.example.image_category.domain.repositories.ImageRepository
 import com.example.wallcater_app.binding.search_image.converter.CategoryConverter
@@ -17,8 +18,9 @@ private fun provideCategoryAdapterRepository(
 
 private fun provideImageAdapterRepository(
     apiRepository: ApiRepository,
+    wallpaperRepository: WallpaperRepository,
     converter: ImageConverter
-): ImageRepository = ImageAdapterRepository(apiRepository, converter)
+): ImageRepository = ImageAdapterRepository(apiRepository, wallpaperRepository, converter)
 
 fun provideSearchImageBindingModule(): Module =
     module {
@@ -34,6 +36,7 @@ fun provideSearchImageBindingModule(): Module =
         single {
             provideImageAdapterRepository(
                 apiRepository = get(),
+                wallpaperRepository = get(),
                 converter = get()
             )
         }

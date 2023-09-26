@@ -1,7 +1,8 @@
 package com.example.wallcater_app
 
 import android.app.Application
-import com.example.data.di.provideApiModule
+import com.example.data.api.di.provideApiModule
+import com.example.data.wallpaper_manager.di.provideWallpaperModule
 import com.example.image_category.domain.di.provideImageCategoryModule
 import com.example.wallcater_app.binding.search_image.di.provideSearchImageBindingModule
 import org.koin.android.ext.koin.androidContext
@@ -16,7 +17,8 @@ class MyApplication: Application() {
             modules(
                 provideApiModule(),
                 provideImageCategoryModule(),
-                provideSearchImageBindingModule()
+                provideSearchImageBindingModule(),
+                provideWallpaperModule()
             )
         }
     }

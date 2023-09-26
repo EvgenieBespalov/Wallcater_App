@@ -1,4 +1,4 @@
-package com.example.data.di
+package com.example.data.api.di
 
 import android.service.controls.ControlsProviderService
 import android.util.Log

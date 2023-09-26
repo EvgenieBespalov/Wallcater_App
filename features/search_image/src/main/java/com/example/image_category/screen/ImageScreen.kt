@@ -1,5 +1,6 @@
 package com.example.image_category.screen
 
+import android.app.WallpaperManager
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import com.example.image_category.domain.entities.ImageEntity
 import com.example.image_category.navigation.SearchImageModuleRoutes
 import com.example.image_category.presentation.ImageScreenUiState
 import com.example.image_category.presentation.ImageScreenViewModel
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -45,8 +47,9 @@ internal fun ImageScreen(
 }
 
 @Composable
-fun ImageColumn(
-    image: ImageEntity
+internal fun ImageColumn(
+    image: ImageEntity,
+    viewModel: ImageScreenViewModel = koinViewModel(),
 ){
     Column(
         modifier = Modifier
@@ -67,10 +70,25 @@ fun ImageColumn(
             modifier = Modifier
                 .padding(top = 20.dp)
                 .fillMaxWidth(),
-            onClick = { /*TODO*/ }
+            onClick = {
+                viewModel.setWallpapperOnSystemScreen(image.url)
+            }
         ) {
             Text(
-                text = "Put on wallpaper"
+                text = "Set wallpaper to the system screen"
+            )
+        }
+
+        Button(
+            modifier = Modifier
+                .padding(top = 20.dp)
+                .fillMaxWidth(),
+            onClick = {
+                viewModel.setWallpapperOnLockScreen(image.url)
+            }
+        ) {
+            Text(
+                text = "Set wallpaper to the lock screen"
             )
         }
 
@@ -97,3 +115,4 @@ fun ImageColumn(
         }
     }
 }
+
