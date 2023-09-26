@@ -2,6 +2,7 @@ package com.example.wallcater_app
 
 import android.app.Application
 import com.example.data.api.di.provideApiModule
+import com.example.data.database.di.provideDataBaseModule
 import com.example.data.wallpaper_manager.di.provideWallpaperModule
 import com.example.image_category.domain.di.provideImageCategoryModule
 import com.example.wallcater_app.binding.search_image.di.provideSearchImageBindingModule
@@ -18,7 +19,8 @@ class MyApplication: Application() {
                 provideApiModule(),
                 provideImageCategoryModule(),
                 provideSearchImageBindingModule(),
-                provideWallpaperModule()
+                provideWallpaperModule(),
+                provideDataBaseModule()
             )
         }
     }

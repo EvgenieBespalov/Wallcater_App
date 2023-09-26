@@ -10,7 +10,7 @@ import com.example.data.api.model.ImageApiModel
 import com.example.data.api.paging_source.ImagePagingSource
 import kotlinx.coroutines.flow.Flow
 
-class ApiRepositoryImpl(
+internal class ApiRepositoryImpl(
     private val categoryApiDatasource: CategoryApiDatasource,
     private val imageApiDatasource: ImageApiDatasource
 ) : ApiRepository{

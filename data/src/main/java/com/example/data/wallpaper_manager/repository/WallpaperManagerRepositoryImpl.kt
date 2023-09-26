@@ -2,9 +2,9 @@ package com.example.data.wallpaper_manager.repository
 
 import com.example.data.wallpaper_manager.wallpaper_manager.MyWallpaperManager
 
-class WallpaperRepositoryImpl(
+internal class WallpaperManagerRepositoryImpl(
     private val wallpaperManager: MyWallpaperManager
-) : WallpaperRepository {
+) : WallpaperManagerRepository {
     override suspend fun setWallpapperOnLockScreen(urlImage: String) = wallpaperManager.setWallpapperOnLockScreen(urlImage)
     override suspend fun setWallpapperOnSystemScreen(urlImage: String) = wallpaperManager.setWallpapperOnSystemScreen(urlImage)
 }

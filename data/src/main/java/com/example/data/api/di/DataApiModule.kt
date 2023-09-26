@@ -64,7 +64,7 @@ fun provideApiModule(): Module =
         single { provideApiRepositoryImpl(categoryApiDatasource = get(), imageApiDatasource = get()) }
     }
 
-class ReceivedCookiesInterceptor() : Interceptor {
+internal class ReceivedCookiesInterceptor() : Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response
     {

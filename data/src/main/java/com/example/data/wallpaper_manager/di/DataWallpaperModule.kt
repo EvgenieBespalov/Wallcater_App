@@ -1,7 +1,7 @@
 package com.example.data.wallpaper_manager.di
 
-import com.example.data.wallpaper_manager.repository.WallpaperRepository
-import com.example.data.wallpaper_manager.repository.WallpaperRepositoryImpl
+import com.example.data.wallpaper_manager.repository.WallpaperManagerRepository
+import com.example.data.wallpaper_manager.repository.WallpaperManagerRepositoryImpl
 import com.example.data.wallpaper_manager.wallpaper_manager.MyWallpaperManager
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.Module
@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 private fun provideWallpaperRepositoryImpl(
     wallpaperManager: MyWallpaperManager
-): WallpaperRepository = WallpaperRepositoryImpl(wallpaperManager)
+): WallpaperManagerRepository = WallpaperManagerRepositoryImpl(wallpaperManager)
 
 fun provideWallpaperModule(): Module =
     module {

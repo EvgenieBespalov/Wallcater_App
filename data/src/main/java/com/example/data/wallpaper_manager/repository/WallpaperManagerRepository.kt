@@ -1,6 +1,6 @@
 package com.example.data.wallpaper_manager.repository
 
-interface WallpaperRepository {
+interface WallpaperManagerRepository {
     suspend fun setWallpapperOnLockScreen(urlImage: String)
 
     suspend fun setWallpapperOnSystemScreen(urlImage: String)

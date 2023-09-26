@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.URL
 
-class MyWallpaperManager(context: Context){
+internal class MyWallpaperManager(context: Context){
     val wallpaperManager: WallpaperManager = WallpaperManager.getInstance(context)
 
     suspend fun setWallpapperOnLockScreen(urlImage: String){
