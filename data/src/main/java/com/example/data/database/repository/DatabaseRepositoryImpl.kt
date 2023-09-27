@@ -8,25 +8,25 @@ import kotlinx.coroutines.withContext
 internal class DatabaseRepositoryImpl(
     private val databaseDatasource: DatabaseDatasource
 ) : DatabaseRepository {
-    override suspend fun saveImage(imageDatabaseModel: ImageDatabaseModel) {
+    override suspend fun saveImageFromDatabase(imageDatabaseModel: ImageDatabaseModel) {
         withContext(Dispatchers.IO) {
-            databaseDatasource.save(imageDatabaseModel)
+            databaseDatasource.saveImageFromDatabase(imageDatabaseModel)
         }
     }
 
-    override suspend fun deleteImage(imageDatabaseModel: ImageDatabaseModel) =
+    override suspend fun deleteImageFromDatabase(imageDatabaseModel: ImageDatabaseModel) =
         withContext(Dispatchers.IO) {
-            databaseDatasource.delete(imageDatabaseModel)
+            databaseDatasource.deleteImageFromDatabase(imageDatabaseModel)
         }
 
-    override suspend fun getAllImage(): List<ImageDatabaseModel> =
+    override suspend fun getAllImageFromDatabase(): List<ImageDatabaseModel> =
         withContext(Dispatchers.IO) {
-            databaseDatasource.getAll()
+            databaseDatasource.getAllImageFromDatabase()
         }
 
 
-    override suspend fun checkSave(imageId: String): ImageDatabaseModel =
+    override suspend fun getImageByIdFromDatabase(imageId: String): ImageDatabaseModel =
         withContext(Dispatchers.IO) {
-            databaseDatasource.checkSave(imageId)
+            databaseDatasource.getImageByIdFromDatabase(imageId)
         }
 }

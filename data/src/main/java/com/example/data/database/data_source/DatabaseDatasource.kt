@@ -9,14 +9,14 @@ import com.example.data.database.model.ImageDatabaseModel
 @Dao
 interface DatabaseDatasource {
     @Insert
-    fun save(imageDatabaseModel: ImageDatabaseModel)
+    fun saveImageFromDatabase(imageDatabaseModel: ImageDatabaseModel)
 
     @Delete
-    fun delete(imageDatabaseModel: ImageDatabaseModel)
+    fun deleteImageFromDatabase(imageDatabaseModel: ImageDatabaseModel)
 
     @Query("SELECT * FROM image_table")
-    fun getAll(): List<ImageDatabaseModel>
+    fun getAllImageFromDatabase(): List<ImageDatabaseModel>
 
-    @Query("SELECT * FROM image_table WHERE id = :id LIMIT 1")
-    fun checkSave(id: String): ImageDatabaseModel
+    @Query("SELECT * FROM image_table WHERE id = :id")
+    fun getImageByIdFromDatabase(id: String): ImageDatabaseModel
 }

@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.favorite_image.navigation.FavoriteImageModuleNavContainer
 import com.example.image_category.screen.SearchImageModuleNavContainer
 import com.example.settings.screen.SettingsScreen
 
@@ -24,8 +25,8 @@ fun ModulesNavHostContainer(
                 SearchImageModuleNavContainer()
             }
 
-            composable(ModulesRoutes.settingsModule.route) {
-                SettingsScreen()
+            composable(ModulesRoutes.favoriteImageModule.route) {
+                FavoriteImageModuleNavContainer()
             }
 
         }

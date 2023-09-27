@@ -48,6 +48,8 @@ internal class ImageScreenViewModel(
 
     fun setWallpapperOnLockScreen(urlImage: String) {
         viewModelScope.launch {
+            _state.value = ImageScreenUiState.Loading
+
             try {
                 setWallpapperOnLockScreenUseCase(urlImage)
                 _state.value = ImageScreenUiState.Initial
@@ -60,6 +62,8 @@ internal class ImageScreenViewModel(
     }
     fun setWallpapperOnSystemScreen(urlImage: String) {
         viewModelScope.launch {
+            _state.value = ImageScreenUiState.Loading
+
             try {
                 setWallpapperOnSystemScreenUseCase(urlImage)
                 _state.value = ImageScreenUiState.Initial
@@ -73,6 +77,8 @@ internal class ImageScreenViewModel(
 
     fun saveImageInDatabase(image: ImageEntity){
         viewModelScope.launch {
+            _state.value = ImageScreenUiState.Loading
+
             try {
                 saveImageInDatabaseUseCase(image)
                 _state.value = ImageScreenUiState.Initial
@@ -86,6 +92,8 @@ internal class ImageScreenViewModel(
 
     fun deleteImageInDatabase(image: ImageEntity){
         viewModelScope.launch {
+            _state.value = ImageScreenUiState.Loading
+
             try {
                 deleteImageFromDatabaseUseCase(image)
                 _state.value = ImageScreenUiState.Initial

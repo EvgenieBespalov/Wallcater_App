@@ -4,7 +4,7 @@ import com.example.data.api.model.ImageApiModel
 import com.example.data.database.model.ImageDatabaseModel
 import com.example.image_category.domain.entities.ImageEntity
 
-class ImageConverter {
+class ImageConverterSearchImageModule {
     fun convertApiModelInEntity(from: ImageApiModel): ImageEntity =
         ImageEntity(
             id = from.id,
@@ -17,8 +17,8 @@ class ImageConverter {
         ImageEntity(
             id = from.id,
             url = from.url,
-            width = from.width.toString(),
-            height = from.height.toString()
+            width = from.width,
+            height = from.height
         )
 
     fun convertEntityInDatabaseModel(from: ImageEntity): ImageDatabaseModel =

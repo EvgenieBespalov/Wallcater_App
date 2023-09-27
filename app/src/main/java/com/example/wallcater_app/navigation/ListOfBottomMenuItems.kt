@@ -16,7 +16,7 @@ object ListOfBottomMenuItems {
         BottomMenuItem(
             label = "Favorites",
             icon = Icons.Outlined.Star,
-            route = ModulesRoutes.settingsModule.route
+            route = ModulesRoutes.favoriteImageModule.route
         )
     )
 }
