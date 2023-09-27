@@ -39,7 +39,8 @@ internal fun ImageScreen(
         ImageScreenUiState.Loading    -> LoadScreen()
         is ImageScreenUiState.Content -> {
             ImageColumn(
-                image = (state as ImageScreenUiState.Content).image
+                image = (state as ImageScreenUiState.Content).image,
+                checkSaveInDatabase = (state as ImageScreenUiState.Content).checkSaveInDatabase,
             )
         }
         is ImageScreenUiState.Error   -> ErrorScreen(errorText = (state as ImageScreenUiState.Error).message.orEmpty())
@@ -49,6 +50,7 @@ internal fun ImageScreen(
 @Composable
 internal fun ImageColumn(
     image: ImageEntity,
+    checkSaveInDatabase: Boolean,
     viewModel: ImageScreenViewModel = koinViewModel(),
 ){
     Column(
@@ -96,14 +98,23 @@ internal fun ImageColumn(
             modifier = Modifier
                 .padding(top = 20.dp)
                 .fillMaxWidth(),
-            onClick = { /*TODO*/ }
+            onClick = {
+                when(checkSaveInDatabase){
+                    false -> viewModel.saveImageInDatabase(image)
+                    true -> viewModel.deleteImageInDatabase(image)
+                }
+            },
         ) {
             Text(
-                text = "Add to Favorites"
+                text = when(checkSaveInDatabase){
+                    false -> "Add to Favorites"
+                    true -> "Delete from Favorites"
+                }
+
             )
         }
 
-        Button(
+        /*Button(
             modifier = Modifier
                 .padding(top = 20.dp)
                 .fillMaxWidth(),
@@ -112,7 +123,7 @@ internal fun ImageColumn(
             Text(
                 text = "Save to Phone"
             )
-        }
+        }*/
     }
 }
 

@@ -36,11 +36,17 @@ fun provideImageCategoryModule(): Module =
             ImageScreenViewModel(
                 getImageByIdUseCase = get(),
                 setWallpapperOnLockScreenUseCase = get(),
-                setWallpapperOnSystemScreenUseCase = get()
+                setWallpapperOnSystemScreenUseCase = get(),
+                checkSaveImageInDatabaseUseCase = get(),
+                saveImageInDatabaseUseCase = get(),
+                deleteImageFromDatabaseUseCase = get()
             )
         }
         factory { GetImageByIdUseCase(repository = get()) }
         factory { SetWallpapperOnLockScreenUseCase(repository = get()) }
         factory { SetWallpapperOnSystemScreenUseCase(repository = get()) }
+        factory { CheckSaveImageInDatabaseUseCase(repository = get()) }
+        factory { SaveImageInDatabaseUseCase(repository = get()) }
+        factory { DeleteImageFromDatabaseUseCase(repository = get()) }
     }
 

@@ -14,6 +14,11 @@ internal class DatabaseRepositoryImpl(
         }
     }
 
+    override suspend fun deleteImage(imageDatabaseModel: ImageDatabaseModel) =
+        withContext(Dispatchers.IO) {
+            databaseDatasource.delete(imageDatabaseModel)
+        }
+
     override suspend fun getAllImage(): List<ImageDatabaseModel> =
         withContext(Dispatchers.IO) {
             databaseDatasource.getAll()

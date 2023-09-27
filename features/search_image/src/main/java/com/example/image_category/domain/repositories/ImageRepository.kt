@@ -10,6 +10,6 @@ interface ImageRepository {
     suspend fun setWallpapperOnLockScreen(urlImage: String)
     suspend fun setWallpapperOnSystemScreen(urlImage: String)
     suspend fun saveImageInDatabase(imageEntity: ImageEntity)
-    suspend fun getAllImageFromDatabase(): List<ImageEntity>
+    suspend fun deleteImageFromDatabase(imageEntity: ImageEntity)
     suspend fun checkSaveImageInDatabase(idImage: String): Boolean
 }

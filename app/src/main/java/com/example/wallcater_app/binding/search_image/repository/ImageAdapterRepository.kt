@@ -35,10 +35,15 @@ class ImageAdapterRepository(
             databaseRepository.saveImage(imageConverter.convertEntityInDatabaseModel(imageEntity))
         }
 
-    override suspend fun getAllImageFromDatabase(): List<ImageEntity> =
+    override suspend fun deleteImageFromDatabase(imageEntity: ImageEntity) =
+        withContext(Dispatchers.IO) {
+            databaseRepository.deleteImage(imageConverter.convertEntityInDatabaseModel(imageEntity))
+        }
+
+    /*override suspend fun getAllImageFromDatabase(): List<ImageEntity> =
     withContext(Dispatchers.IO) {
         databaseRepository.getAllImage().map { imageConverter.convertDatabaseModelInEntity(it) }
-    }
+    }*/
 
     override suspend fun checkSaveImageInDatabase(idImage: String): Boolean =
         withContext(Dispatchers.IO) {
