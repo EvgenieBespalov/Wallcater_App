@@ -70,6 +70,7 @@ buildscript {
         Modules = [
                 Features: [
                         ImageCategory: ':features:search_image',
+                        ImageFavorites: ':features:favorite_image',
                         Settings: ':features:settings',
                         BottomBar: ":features:bottom_bar"
                 ],

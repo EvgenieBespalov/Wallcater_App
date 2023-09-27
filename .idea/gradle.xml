@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/features/bottom_bar" />
+            <option value="$PROJECT_DIR$/features/favorite_image" />
             <option value="$PROJECT_DIR$/features/search_image" />
             <option value="$PROJECT_DIR$/features/settings" />
           </set>
