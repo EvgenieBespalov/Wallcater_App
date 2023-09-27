@@ -2,7 +2,7 @@ package com.example.data.wallpaper_manager.di
 
 import com.example.data.wallpaper_manager.repository.WallpaperManagerRepository
 import com.example.data.wallpaper_manager.repository.WallpaperManagerRepositoryImpl
-import com.example.data.wallpaper_manager.wallpaper_manager.MyWallpaperManager
+import com.example.data.wallpaper_manager.data_source.MyWallpaperManager
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.module.Module
 import org.koin.dsl.module

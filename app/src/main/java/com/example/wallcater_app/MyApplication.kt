@@ -2,7 +2,8 @@ package com.example.wallcater_app
 
 import android.app.Application
 import com.example.data.api.di.provideApiModule
-import com.example.data.database.di.provideDataBaseModule
+import com.example.data.database.di.provideDatabaseModule
+import com.example.data.shared_preference.di.provideSharedPreferenceModule
 import com.example.data.wallpaper_manager.di.provideWallpaperModule
 import com.example.favorite_image.domain.di.provideFavoriteImageModule
 import com.example.image_category.domain.di.provideImageCategoryModule
@@ -18,13 +19,14 @@ class MyApplication: Application() {
         startKoin {
             androidContext(this@MyApplication)
             modules(
-                provideApiModule(),
                 provideImageCategoryModule(),
                 provideFavoriteImageModule(),
                 provideSearchImageBindingModule(),
                 provideFavoriteImageBindingModule(),
+                provideApiModule(),
                 provideWallpaperModule(),
-                provideDataBaseModule()
+                provideDatabaseModule(),
+                provideSharedPreferenceModule()
             )
         }
     }

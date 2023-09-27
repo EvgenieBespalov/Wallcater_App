@@ -1,6 +1,6 @@
 package com.example.data.wallpaper_manager.repository
 
-import com.example.data.wallpaper_manager.wallpaper_manager.MyWallpaperManager
+import com.example.data.wallpaper_manager.data_source.MyWallpaperManager
 
 internal class WallpaperManagerRepositoryImpl(
     private val wallpaperManager: MyWallpaperManager

@@ -1,4 +1,4 @@
-package com.example.data.wallpaper_manager.wallpaper_manager
+package com.example.data.wallpaper_manager.data_source
 
 import android.app.WallpaperManager
 import android.content.Context

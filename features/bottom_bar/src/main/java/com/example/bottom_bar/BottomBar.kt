@@ -40,13 +40,13 @@ fun BottomBar(navController: NavHostController, bottomMenuItems: List<BottomMenu
                     )
                 },
                 enabled = true,
-                colors = NavigationBarItemDefaults.colors(
+                /*colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = Color.Black,
                     selectedTextColor = Color.Black,
                     unselectedIconColor = Color.Gray,
                     unselectedTextColor = Color.Gray,
                     //indicatorColor = Color.Transparent
-                )
+                )*/
                 //alwaysShowLabel = false
             )
         }
