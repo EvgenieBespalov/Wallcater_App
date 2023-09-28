@@ -14,6 +14,8 @@ import com.example.image_category.domain.entities.CategoryEntity
 import com.example.image_category.navigation.SearchImageModuleRoutes
 import com.example.image_category.presentation.ListCategoryScreenUiState
 import com.example.image_category.presentation.ListCategoryScreenViewModel
+import com.example.image_category.screen.common.ErrorScreen
+import com.example.image_category.screen.common.LoadScreen
 import org.koin.androidx.compose.koinViewModel
 
 @Composable

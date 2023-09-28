@@ -1,4 +1,4 @@
-package com.example.image_category.screen.common
+package com.example.settings.screen.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

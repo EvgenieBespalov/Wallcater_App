@@ -1,7 +1,5 @@
 package com.example.image_category.domain.di
 
-import android.app.WallpaperManager
-import android.content.Context
 import com.example.image_category.domain.usecase.*
 import com.example.image_category.domain.usecase.GetImageByIdUseCase
 import com.example.image_category.domain.usecase.GetListCategoriesUseCase
@@ -9,12 +7,9 @@ import com.example.image_category.domain.usecase.GetListImagesUseCase
 import com.example.image_category.presentation.ImageScreenViewModel
 import com.example.image_category.presentation.ListCategoryScreenViewModel
 import com.example.image_category.presentation.ListImageScreenViewModel
-import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import java.io.InputStream
-import java.net.URL
 
 fun provideImageCategoryModule(): Module =
     module {

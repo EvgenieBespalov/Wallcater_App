@@ -1,4 +1,4 @@
-package com.example.wallcater_app.ui.theme
+package com.example.settings.screen.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
@@ -6,8 +6,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// Set of Material typography styles to start with
-/*val TypographyStyle = Typography(
+val TypographyStyle = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
@@ -31,4 +30,4 @@ import androidx.compose.ui.unit.sp
         letterSpacing = 0.5.sp
     )
     */
-)*/
+)

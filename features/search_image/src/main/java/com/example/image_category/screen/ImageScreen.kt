@@ -24,6 +24,8 @@ import com.example.image_category.domain.entities.ImageEntity
 import com.example.image_category.navigation.SearchImageModuleRoutes
 import com.example.image_category.presentation.ImageScreenUiState
 import com.example.image_category.presentation.ImageScreenViewModel
+import com.example.image_category.screen.common.ErrorScreen
+import com.example.image_category.screen.common.LoadScreen
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.compose.koinViewModel
 

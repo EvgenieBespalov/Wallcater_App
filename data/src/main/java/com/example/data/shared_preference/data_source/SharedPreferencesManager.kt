@@ -12,10 +12,9 @@ internal class SharedPreferencesManager (context: Context) {
         )
     }
 
-    val darkTheme: Boolean
-        get() = sharedPreferences.getBoolean("DARK_THEME", true)
+    val darkTheme: Boolean get() = sharedPreferences.getBoolean("DARK_THEME", true)
 
     fun changeTheme(theme: Boolean) {
-        sharedPreferences.edit().putBoolean("DARK_THEME", !theme).apply()
+        sharedPreferences.edit().putBoolean("DARK_THEME", theme).apply()
     }
 }
