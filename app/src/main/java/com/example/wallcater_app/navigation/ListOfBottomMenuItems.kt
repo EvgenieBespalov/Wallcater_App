@@ -2,6 +2,7 @@ package com.example.wallcater_app.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Star
 import com.example.bottom_bar.BottomMenuItem
 
@@ -17,6 +18,11 @@ object ListOfBottomMenuItems {
             label = "Favorites",
             icon = Icons.Outlined.Star,
             route = ModulesRoutes.favoriteImageModule.route
+        ),
+        BottomMenuItem(
+            label = "Settings",
+            icon = Icons.Outlined.Settings,
+            route = ModulesRoutes.settingsModule.route
         )
     )
 }

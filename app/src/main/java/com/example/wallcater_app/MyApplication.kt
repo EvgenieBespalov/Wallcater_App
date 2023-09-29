@@ -11,6 +11,7 @@ import com.example.settings.domain.di.provideSettingsModule
 import com.example.wallcater_app.binding.favorite_image.di.provideFavoriteImageBindingModule
 import com.example.wallcater_app.binding.search_image.di.provideSearchImageBindingModule
 import com.example.wallcater_app.binding.settings.di.provideSettingsBindingModule
+import com.example.wallcater_app.ui.domain.di.provideMainThemeModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -21,6 +22,7 @@ class MyApplication: Application() {
         startKoin {
             androidContext(this@MyApplication)
             modules(
+                provideMainThemeModule(),
                 provideSearchImageBindingModule(),
                 provideFavoriteImageBindingModule(),
                 provideSettingsBindingModule(),

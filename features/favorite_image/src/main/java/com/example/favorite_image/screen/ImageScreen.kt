@@ -64,7 +64,7 @@ internal fun ImageColumn(
                 .fillMaxSize(),
             model = image.url,
             contentScale = ContentScale.Crop,
-            contentDescription = "Icon planet"
+            contentDescription = ""
         )
 
         Button(

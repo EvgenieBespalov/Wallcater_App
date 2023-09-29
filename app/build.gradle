@@ -53,16 +53,15 @@ dependencies {
     implementation project(path: Modules.Features.BottomBar)
     implementation project(path: Modules.Data)
 
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
 
     implementation Implementations.Android.CoreKtx
     implementation Implementations.Android.LifecycleRuntimeKtx
     implementation Implementations.Android.ActivityCompose
-
     implementation Implementations.Compose.Ui
     implementation Implementations.Compose.UiToolingPreview
     implementation Implementations.Compose.Material3
-
+    implementation Implementations.Compose.RuntimeLivedata
 
     androidTestImplementation AndroidTestImplementations.Compose.UiTestJunit4
     androidTestImplementation AndroidTestImplementations.Test.Junit
@@ -80,4 +79,6 @@ dependencies {
     //Pager3
     implementation Implementations.Pager.PagingRuntime
     implementation Implementations.Pager.PagingCompose
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }

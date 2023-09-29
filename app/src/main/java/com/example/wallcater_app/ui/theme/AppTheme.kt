@@ -7,7 +7,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 
-/*@Composable
+@Composable
 fun Wallcater_AppTheme(
     darkTheme: Boolean,
     content: @Composable () -> Unit
@@ -26,8 +26,7 @@ fun Wallcater_AppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = TypographyStyle,
         content = content
     )
 }
-*/

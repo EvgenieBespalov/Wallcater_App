@@ -31,7 +31,7 @@ fun ModulesNavHostContainer(
                 FavoriteImageModuleNavContainer()
             }
 
-            composable(ModulesRoutes.favoriteImageModule.route) {
+            composable(ModulesRoutes.settingsModule.route) {
                 SettingsModuleNavContainer(
                     darkTheme
                 )

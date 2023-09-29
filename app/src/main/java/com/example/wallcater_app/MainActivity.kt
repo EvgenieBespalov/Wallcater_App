@@ -14,53 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.bottom_bar.BottomBar
-import com.example.settings.screen.Wallcater_AppTheme
 import com.example.wallcater_app.navigation.ListOfBottomMenuItems
 import com.example.wallcater_app.navigation.ModulesNavHostContainer
+import com.example.wallcater_app.ui.screen.MainScreen
+import com.example.wallcater_app.ui.theme.Wallcater_AppTheme
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val darkTheme = remember { mutableStateOf(true) }
-
-                Wallcater_AppTheme(
-                    darkTheme = darkTheme.value,
-                    content = {
-                        Surface(
-                            modifier = Modifier.fillMaxSize(),
-                            color = MaterialTheme.colorScheme.background
-                        ) {
-                            val navController = rememberNavController()
-
-                            Scaffold(
-                                bottomBar = {
-                                    BottomBar(
-                                        navController = navController,
-                                        bottomMenuItems = ListOfBottomMenuItems.BottomMenuItems
-                                    )
-                                },
-                                content = { padding ->
-                                    ModulesNavHostContainer(
-                                        navController = navController,
-                                        padding = padding,
-                                        darkTheme = darkTheme
-                                    )
-                                }
-                            )
-                        }
-                    }
-                )
+            MainScreen()
         }
     }
 }
-/*
-@Composable
-fun clickB(
-    state: MutableState<Boolean>
-){
-    Button(onClick = { state.value = !state.value }) {
-        Text("Change theme")
-    }
-}*/
